@@ -1,3 +1,20 @@
 /* styles.css */
-
+.zyres {
+    margin: 10px 20
+}
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar but allow scrolling */
+  body {
+    overflow: hidden; /* This completely disables scrolling */
+  }
+  
+  /* If you want to keep scrolling but hide the scrollbar */
+  body {
+    overflow: auto;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  }
 /* Add styles here to customize the appearance of your app */

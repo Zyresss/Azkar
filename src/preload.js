@@ -16,3 +16,13 @@ window.addEventListener('DOMContentLoaded', () => {
     replaceText(`${type}-version`, process.versions[type])
   }
 })
+
+function setActive(element) {
+  // Remove active class from all links
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.remove('active');
+  });
+  // Add active class to clicked link
+  element.classList.add('active');
+}
+
