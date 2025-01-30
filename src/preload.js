@@ -29,6 +29,20 @@ function setActive(element) {
   element.classList.add('active');
 }
 
+function setDefaultActiveLink() {
+  const currentPage = window.location.pathname.split('/').pop(); // Get the current page filename
+  const links = document.querySelectorAll('.nav-link');
+
+  links.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      setActive(link); // Set the link as active
+    }
+  });
+}
+
+// Call the function when the page loads
+window.onload = setDefaultActiveLink;
+
 
 scrollSection.addEventListener('wheel', (e) => {
   const scrollTop = scrollSection.scrollTop;
