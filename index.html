@@ -8,8 +8,15 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
   <script src="https://kit.fontawesome.com/9abe29d3f9.js" crossorigin="anonymous"></script>
+  <script>
+    // Apply the theme immediately before the page renders
+    (function () {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
   <style>
-
+    /* Additional styles if needed */
   </style>
 </head>
 
@@ -24,7 +31,8 @@
   </nav>
   <section>
     <div class="container has-text-centered">
-      <span class=" is-warning is-large  is-fullwidth" style="font-weight: 700; font-size: 70px; color: #ffffff;">Azkar</span>
+      <span class=" is-warning is-large  is-fullwidth"
+        style="font-weight: 700; font-size: 70px; color: var(--text-color);">Azkar</span>
       <section class="ml-4 mr-4">
         <div class="button is-warning is-medium  is-fullwidth" style="background-color: #E1CE7A;">
         </div>
@@ -34,15 +42,51 @@
   <div class="box custom-box mt-5">
     <div class="scroll-section p-7" id="scrollSection">
       <div class="buttons is-flex is-flex-direction-column" id="buttonContainer">
-        <button class="button is-warning is-large is-fullwidth" style="font-weight: 700; background-color: #EBCFB2; color: #424B54;">Morning Azkar</button>
-        <button class="button is-warning is-large is-fullwidth" style="font-weight: 700; background-color: #EBCFB2; color: #424B54;">Evening Azkar</button>
-        <button class="button is-warning is-large is-fullwidth" style="font-weight: 700; background-color: #EBCFB2; color: #424B54;">Sleep Azkar</button>
-        <button class="button is-warning is-large is-fullwidth" style="font-weight: 700; background-color: #EBCFB2; color: #424B54;">Waking up Azkar</button>
-        <button class="button is-warning is-large is-fullwidth" style="font-weight: 700; background-color: #EBCFB2; color: #424B54;">After Prayers</button>
+        <button class="button is-warning is-large is-fullwidth"
+          style="font-weight: 700; background-color: var(--button-bg-color); color: var(--button-text-color);">Morning
+          Azkar</button>
+        <button class="button is-warning is-large is-fullwidth"
+          style="font-weight: 700; background-color: var(--button-bg-color); color: var(--button-text-color);">Evening
+          Azkar</button>
+        <button class="button is-warning is-large is-fullwidth"
+          style="font-weight: 700; background-color: var(--button-bg-color); color: var(--button-text-color);">Sleep
+          Azkar</button>
+        <button class="button is-warning is-large is-fullwidth"
+          style="font-weight: 700; background-color: var(--button-bg-color); color: var(--button-text-color);">Waking up
+          Azkar</button>
+        <button class="button is-warning is-large is-fullwidth"
+          style="font-weight: 700; background-color: var(--button-bg-color); color: var(--button-text-color);">After
+          Prayers</button>
       </div>
     </div>
   </div>
+  <script>
+    function setActive(element) {
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    function toggleTheme() {
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      setTheme(savedTheme);
+
+      document.getElementById('dark').addEventListener('change', () => setTheme('dark'));
+      document.getElementById('light').addEventListener('change', () => setTheme('light'));
+    });
+  </script>
   <script src="src/preload.js"></script>
   <script src="renderer.js"></script>
 </body>
+
 </html>

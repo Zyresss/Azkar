@@ -8,8 +8,15 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/9abe29d3f9.js" crossorigin="anonymous"></script>
+    <script>
+        // Apply the theme immediately before the page renders
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
     <style>
-
+        /* Additional styles if needed */
     </style>
 </head>
 
@@ -22,6 +29,52 @@
             </div>
         </div>
     </nav>
+    <div class="columns is-flex-direction-row py-5 ml-5" style="max-width: 80px;">
+        <div class="column pr-3">
+            <span class="has-text-weight-semibold">Theme:</span>
+        </div>
+        <div class="column">
+            <div class="field">
+                <label class="b-radio radio">
+                    <input id="dark" type="radio" name="group_2" onchange="setTheme('dark')">
+                    <span class="check"></span>
+                    <span class="control-label">Dark</span>
+                </label>
+            </div>
+        </div>
+        <div class="column">
+            <div class="field">
+                <label class="b-radio radio">
+                    <input id="light" type="radio" name="group_2" onchange="setTheme('light')">
+                    <span class="check"></span>
+                    <span class="control-label">Light</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <script>
+        function setActive(element) {
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+
+            if (savedTheme === 'dark') {
+                document.getElementById('dark').checked = true;
+            } else {
+                document.getElementById('light').checked = true;
+            }
+        });
+    </script>
+    <script src="src/preload.js"></script>
 </body>
 
 </html>

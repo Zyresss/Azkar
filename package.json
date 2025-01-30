@@ -1,6 +1,6 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
+  "name": "azkar-app",
+  "version": "0.0.2",
   "description": "A minimal Electron application",
   "main": "src/main.js",
   "scripts": {
@@ -14,8 +14,8 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Zyres",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^34.0.1"
   }

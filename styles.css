@@ -1,4 +1,51 @@
 /* styles.css */
+/* styles.css */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --navbar-bg-color: transparent;
+  --navbar-text-color: #ffffff;
+  --nav-link-color: #ffffff;
+  --nav-link-hover-color: #E1CE7A;
+  --button-bg-color: #EBCFB2;
+  --button-text-color: #424B54;
+}
+
+[data-theme="dark"] {
+  --background-color: #14161a;
+  --text-color: #ffffff;
+  --navbar-bg-color: transparent;
+  --nav-link-color: #ffffff;
+  --nav-link-hover-color: #E1CE7A;
+  --button-bg-color: #EBCFB2;
+  --button-text-color: #424B54;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.navbar.is-transparent {
+  background-color: var(--navbar-bg-color);
+}
+
+.nav-link {
+  color: var(--nav-link-color);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--nav-link-hover-color);
+}
+
+.button.is-warning {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+}
 .navbar.is-transparent {
   background-color: transparent;
 }
@@ -13,11 +60,11 @@
 
 .nav-link {
   position: relative;
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1.1rem;
   padding: 0.5rem 1rem;
-  transition: color 0.3s ease;
+  transition: color 0.1s ease;
 }
 
 .nav-link::after {
@@ -34,6 +81,7 @@
 .nav-link:hover::after,
 .nav-link.active::after {
   width: 100%;
+  transition: width;
 }
 
 .nav-link:hover,
@@ -46,31 +94,42 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
-.box{
+
+.box {
   margin-left: 100px;
   margin-right: 100px;
 }
+
 .custom-box {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
   transition: box-shadow 0.3s ease;
 }
+
 .zyres {
-    margin: 10px 20
+  margin: 10px 20
 }
+
 ::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Hide scrollbar but allow scrolling */
-  body {
-    overflow: hidden; /* This completely disables scrolling */
-    background-color: C5BAAF;
-  }
-  
-  /* If you want to keep scrolling but hide the scrollbar */
-  body {
-    overflow: auto;
-    scrollbar-width: none; /* For Firefox */
-    -ms-overflow-style: none; /* For Internet Explorer and Edge */
-  }
+  display: none;
+}
+
+/* Hide scrollbar but allow scrolling */
+body {
+  overflow: hidden;
+  /* This completely disables scrolling */
+  background-color: C5BAAF;
+}
+
+/* If you want to keep scrolling but hide the scrollbar */
+body {
+  overflow: auto;
+  scrollbar-width: none;
+  /* For Firefox */
+  -ms-overflow-style: none;
+  /* For Internet Explorer and Edge */
+}
+
+
+
+/* Rest of your existing CSS */
 /* Add styles here to customize the appearance of your app */

@@ -20,14 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 })
 
-function setActive(element) {
-  // Remove active class from all links
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.classList.remove('active');
-  });
-  // Add active class to clicked link
-  element.classList.add('active');
-}
+
 
 function setDefaultActiveLink() {
   const currentPage = window.location.pathname.split('/').pop(); // Get the current page filename
@@ -51,17 +44,17 @@ scrollSection.addEventListener('wheel', (e) => {
 
   // Check if we're at the top or bottom
   if (
-      (scrollTop <= 0 && e.deltaY < 0) || // At top and scrolling up
-      (scrollTop + clientHeight >= scrollHeight && e.deltaY > 0) // At bottom and scrolling down
+    (scrollTop <= 0 && e.deltaY < 0) || // At top and scrolling up
+    (scrollTop + clientHeight >= scrollHeight && e.deltaY > 0) // At bottom and scrolling down
   ) {
-      e.preventDefault(); // Prevent main window scroll
-      return;
+    e.preventDefault(); // Prevent main window scroll
+    return;
   }
 
   // Normal smooth scroll within the section
   e.preventDefault();
   scrollSection.scrollBy({
-      top: e.deltaY * 0.14,
-      behavior: 'smooth'
+    top: e.deltaY * 0.14,
+    behavior: 'smooth'
   });
 });
