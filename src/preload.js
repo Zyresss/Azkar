@@ -7,8 +7,6 @@
  * https://www.electronjs.org/docs/latest/tutorial/sandbox
  */
 
-const scrollSection = document.getElementById('scrollSection');
-
 window.addEventListener('DOMContentLoaded', () => {
   const replaceText = (selector, text) => {
     const element = document.getElementById(selector)
@@ -18,9 +16,38 @@ window.addEventListener('DOMContentLoaded', () => {
   for (const type of ['chrome', 'node', 'electron']) {
     replaceText(`${type}-version`, process.versions[type])
   }
+
+  // "dark" and "light" themes
+
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  setTheme(savedTheme);
+
+  if (savedTheme === 'dark') {
+    document.getElementById('dark').checked = true;
+  }
+  else {
+    document.getElementById('light').checked = true;
+  }
+  document.getElementById('dark').addEventListener('change', () => setTheme('dark'));
+  document.getElementById('light').addEventListener('change', () => setTheme('light'));
+
 })
 
+function setActive(element) {
+  document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+  element.classList.add('active');
+}
+// themes
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme)
+}
 
+function toggleTheme() {
+  const currentTheme = localStorage.getItem('theme') || light;
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  setTheme(newTheme);
+}
 
 function setDefaultActiveLink() {
   const currentPage = window.location.pathname.split('/').pop(); // Get the current page filename
@@ -36,6 +63,7 @@ function setDefaultActiveLink() {
 // Call the function when the page loads
 window.onload = setDefaultActiveLink;
 
+const scrollSection = document.getElementById('scrollSection');
 
 scrollSection.addEventListener('wheel', (e) => {
   const scrollTop = scrollSection.scrollTop;

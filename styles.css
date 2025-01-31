@@ -64,7 +64,7 @@ body {
   text-decoration: none;
   font-size: 1.1rem;
   padding: 0.5rem 1rem;
-  transition: color 0.1s ease;
+  transition: color 0.3s ease;
 }
 
 .nav-link::after {
@@ -124,11 +124,8 @@ body {
 body {
   overflow: auto;
   scrollbar-width: none;
-  /* For Firefox */
   -ms-overflow-style: none;
-  /* For Internet Explorer and Edge */
 }
-
 
 
 /* Rest of your existing CSS */

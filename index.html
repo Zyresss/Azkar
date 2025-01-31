@@ -61,29 +61,7 @@
     </div>
   </div>
   <script>
-    function setActive(element) {
-      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-      element.classList.add('active');
-    }
-
-    function setTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    }
-
-    function toggleTheme() {
-      const currentTheme = localStorage.getItem('theme') || 'light';
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      setTheme(newTheme);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      setTheme(savedTheme);
-
-      document.getElementById('dark').addEventListener('change', () => setTheme('dark'));
-      document.getElementById('light').addEventListener('change', () => setTheme('light'));
-    });
+    
   </script>
   <script src="src/preload.js"></script>
   <script src="renderer.js"></script>
