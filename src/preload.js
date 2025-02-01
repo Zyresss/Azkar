@@ -86,3 +86,46 @@ scrollSection.addEventListener('wheel', (e) => {
     behavior: 'smooth'
   });
 });
+
+let currentPage = null;
+
+function showMorningAzkar() {
+  document.getElementById('main').style.display = 'none';
+  document.getElementById('morningPage').style.display = 'block';
+  currentPage = 'morningPage';
+}
+
+function showEveningAzkar() {
+  document.getElementById('main').style.display = 'none';
+  document.getElementById('eveningPage').style.display = 'block';
+  currentPage = 'eveningPage';
+}
+
+function showSleepAzkar() {
+  document.getElementById('main').style.display = 'none';
+  document.getElementById('sleepPage').style.display = 'block';
+  currentPage = 'sleepPage';
+}
+
+function showWakingUpAzkar() {
+  document.getElementById('main').style.display = 'none';
+  document.getElementById('wakingupPage').style.display = 'block';
+  currentPage = 'wakingupPage';
+}
+
+function showAfterPrayerAzkar() {
+  document.getElementById('main').style.display = 'none';
+  document.getElementById('afterPrayerPage').style.display = 'block';
+  currentPage = 'afterPrayerPage';
+}
+
+function home() {
+  // Hide current page if one is active
+  if (currentPage) {
+    document.getElementById(currentPage).style.display = 'none';
+  }
+  // Show main page
+  document.getElementById('main').style.display = 'block';
+  // Reset current page
+  currentPage = null;
+}

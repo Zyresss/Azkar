@@ -29,6 +29,17 @@ body {
   -ms-overflow-style: none;
 }
 
+#morningPage,
+#eveningPage,
+#sleepPage,
+#wakingupPage,
+#afterPrayerPage {
+  display: none;
+  text-align: center;
+  color: var(--text-color);
+  padding: 2rem;
+}
+
 .navbar.is-transparent {
   background-color: var(--navbar-bg-color);
 }
@@ -46,6 +57,7 @@ body {
   background-color: var(--button-bg-color);
   color: var(--button-text-color);
 }
+
 .navbar.is-transparent {
   background-color: transparent;
 }
