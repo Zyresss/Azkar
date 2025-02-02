@@ -38,6 +38,7 @@ body {
   text-align: center;
   color: var(--text-color);
   padding: 2rem;
+  animation: transitionIn 0.75s;
 }
 
 .navbar.is-transparent {
@@ -130,6 +131,7 @@ body {
   overflow: hidden;
   /* This completely disables scrolling */
   background-color: C5BAAF;
+  animation: transitionIn 0.75s;
 }
 
 /* If you want to keep scrolling but hide the scrollbar */
@@ -139,6 +141,20 @@ body {
   -ms-overflow-style: none;
 }
 
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+
+.main-scene {
+  animation: transitionIn 0.75s;
+}
 
 /* Rest of your existing CSS */
 /* Add styles here to customize the appearance of your app */
