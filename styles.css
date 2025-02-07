@@ -132,7 +132,6 @@ body {
 
 .sub-boxes {
   display: flex;
-  width: 1500px; /* 3 boxes * 300px each */
   transition: transform 0.3s ease;
 }
 
@@ -143,6 +142,7 @@ body {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .nav-buttons {

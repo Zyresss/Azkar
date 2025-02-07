@@ -141,19 +141,24 @@ function initializeCarousel(subBoxesId, prevButtonId, nextButtonId) {
   const prevButton = document.getElementById(prevButtonId);
   const nextButton = document.getElementById(nextButtonId);
   let currentPosition = 0;
-  const totalBoxes = 3; // Number of sub-boxes per carousel
+  
+  // Calculate total boxes dynamically
+  const totalBoxes = subBoxes.children.length;
+  
+  // Set container width based on number of boxes
+  subBoxes.style.width = `${totalBoxes * 500}px`;
 
   prevButton.addEventListener('click', () => {
-      if (currentPosition > 0) {
-          currentPosition -= 1;
-          subBoxes.style.transform = `translateX(-${currentPosition * 500}px)`;
-      }
+    if (currentPosition > 0) {
+      currentPosition -= 1;
+      subBoxes.style.transform = `translateX(-${currentPosition * 500}px)`;
+    }
   });
 
   nextButton.addEventListener('click', () => {
-      if (currentPosition < totalBoxes - 1) {
-          currentPosition += 1;
-          subBoxes.style.transform = `translateX(-${currentPosition * 500}px)`;
-      }
+    if (currentPosition < totalBoxes - 1) {
+      currentPosition += 1;
+      subBoxes.style.transform = `translateX(-${currentPosition * 500}px)`;
+    }
   });
 }
