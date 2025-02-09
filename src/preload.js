@@ -87,43 +87,6 @@ scrollSection.addEventListener('wheel', (e) => {
   });
 });
 
-let currentPage = null;
-
-
-function showMorningAzkar() {
-  document.getElementById('main').style.display = 'none';
-  document.getElementById('morningPage').style.display = 'block';
-  currentPage = 'morningPage';
-  initializeCarousel('subBoxes-mo', 'prevButton-mo', 'nextButton-mo');
-}
-
-function showEveningAzkar() {
-  document.getElementById('main').style.display = 'none';
-  document.getElementById('eveningPage').style.display = 'block';
-  currentPage = 'eveningPage';
-  initializeCarousel('subBoxes-ev', 'prevButton-ev', 'nextButton-ev');
-}
-
-function showSleepAzkar() {
-  document.getElementById('main').style.display = 'none';
-  document.getElementById('sleepPage').style.display = 'block';
-  currentPage = 'sleepPage';
-  initializeCarousel('subBoxes-sl', 'prevButton-sl', 'nextButton-sl');
-}
-
-function showWakingUpAzkar() {
-  document.getElementById('main').style.display = 'none';
-  document.getElementById('wakingupPage').style.display = 'block';
-  currentPage = 'wakingupPage';
-  initializeCarousel('subBoxes-wa', 'prevButton-wa', 'nextButton-wa');
-}
-
-function showAfterPrayerAzkar() {
-  document.getElementById('main').style.display = 'none';
-  document.getElementById('afterPrayerPage').style.display = 'block';
-  currentPage = 'afterPrayerPage';
-  initializeCarousel('subBoxes-af', 'prevButton-af', 'nextButton-af');
-}
 
 function home() {
   // Hide current page if one is active
